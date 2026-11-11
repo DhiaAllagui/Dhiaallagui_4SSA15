@@ -1,5 +1,6 @@
 package com.example.dhiaallagui_4ssa15.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -22,13 +23,14 @@ public class Contrat {
     private Long idContrat;
     private LocalDate dateSignature;
     private BigDecimal montantTotal;
-    private boolean valide;
+    private Boolean valide;
 
     @OneToOne
     @ToString.Exclude
     private Reservation reservation;
 
     // composition : les paiements n'existent pas sans leur contrat
+    @JsonIgnore
     @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
     private List<Paiement> paiements;

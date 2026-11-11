@@ -1,5 +1,6 @@
 package com.example.dhiaallagui_4ssa15.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -20,6 +21,7 @@ public class Equipement {
     private Long idEquipement;
     private String libelle;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "equipements")
     @ToString.Exclude
     private List<Vehicule> vehicules;

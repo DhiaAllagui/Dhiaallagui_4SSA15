@@ -1,5 +1,6 @@
 package com.example.dhiaallagui_4ssa15.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -23,10 +24,12 @@ public class Agence {
     private String adresse;
     private String telephone;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "agence")
     @ToString.Exclude
     private List<Employe> employes;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "agence")
     @ToString.Exclude
     private List<Vehicule> vehicules;

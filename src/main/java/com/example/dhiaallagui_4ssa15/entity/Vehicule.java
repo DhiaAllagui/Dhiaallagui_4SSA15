@@ -1,6 +1,6 @@
 package com.example.dhiaallagui_4ssa15.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -37,10 +37,12 @@ public class Vehicule {
     @ToString.Exclude
     private List<Equipement> equipements;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "vehicule")
     @ToString.Exclude
     private List<Reservation> reservations;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "vehicule")
     @ToString.Exclude
     private List<Maintenance> maintenances;

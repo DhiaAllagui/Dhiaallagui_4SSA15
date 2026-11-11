@@ -1,5 +1,6 @@
 package com.example.dhiaallagui_4ssa15.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -31,6 +32,7 @@ public class Reservation {
     @ToString.Exclude
     private Client client;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "reservation")
     @ToString.Exclude
     private Contrat contrat;
